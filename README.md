@@ -10,7 +10,7 @@ If you want to modify the code yourself make sure you have odin installed, yeah 
 
 Executable should still work on any windows system though
 
-./trench_run.exe <x or higher damage> <debug_log>
+``./trench_run.exe <x or higher damage> <debug_log>``
 
 
 # TODO 
