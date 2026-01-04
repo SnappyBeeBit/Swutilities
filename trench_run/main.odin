@@ -8,10 +8,12 @@ import "core:strings"
 Piett: []f32 : {0, 0, 13, 9, 0, 6, 9, 4, 5, 2, 2}
 main :: proc() {
 	show_debug := len(os.args) > 2 && os.args[2] == "y"
+	list, _ := strconv.parse_int(os.args[3])
+	
 	bytes, err := os2.read_entire_file_from_path("input.csv", context.allocator)
 	input := string(bytes)
 	lines, _ := strings.split_lines(input)
-	first_line := lines[1]
+	first_line := lines[list]
 	comment_splitted, _ := strings.split(first_line, " #")
 	deck_as_costs: [dynamic]f32 = make([dynamic]f32)
 	for i in strings.split_iterator(&comment_splitted[0], ",") {
