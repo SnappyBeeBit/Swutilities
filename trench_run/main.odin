@@ -13,9 +13,9 @@ main :: proc () {
 	input := string(bytes)
 	lines, _ := strings.split_lines(input)
 	first_line := lines[0]
-	
+	comment_removed, _ := strings.split(first_line, " #")
 	deck_as_costs : [dynamic]f32 = make([dynamic]f32)
-	for i in strings.split_iterator(&first_line, ",") {
+	for i in strings.split_iterator(&comment_removed[0], ",") {
 		value := strconv.parse_f32(string(i)) or_break
 		append(&deck_as_costs, value)
 	}
